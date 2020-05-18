@@ -4,6 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+!/.gitignore
 
 ### STS ###
 .apt_generated
@@ -30,3 +31,9 @@ out/
 
 ### VS Code ###
 .vscode/
+src/main/java/com/example/demo/controller/
+src/main/java/com/example/demo/dao/
+src/main/java/com/example/demo/repository/
+src/main/java/com/example/demo/security/
+src/main/resources/static/
+src/main/resources/templates/
