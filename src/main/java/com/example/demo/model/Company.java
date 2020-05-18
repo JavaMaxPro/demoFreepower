@@ -1,10 +1,15 @@
 package com.example.demo.model;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.util.Date;
 import java.util.Objects;
 
 public class Company {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     private String nameCompany;
     private String logoPicture;
