@@ -14,7 +14,7 @@ public class BaseEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
+  //  @Column(name = "id")
     private long id;
 
     @CreatedDate

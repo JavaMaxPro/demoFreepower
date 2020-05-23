@@ -19,18 +19,17 @@ public class Company extends  BaseEntity{
     @Column(name="logoPicture")
     private String logoPicture;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name="Company_has_Users",
-            joinColumns = {@JoinColumn(name ="Company_idCompany", referencedColumnName = "id" )},
-            inverseJoinColumns = {@JoinColumn(name = "Users_idUsersCompany",referencedColumnName = "id")})
+    @OneToMany(mappedBy = "company")
+    private List<CategoryHasCompany> categoryHasCompanyList;
 
-    private List<UsersCompany> usersCompany;
+    @OneToMany(mappedBy = "companyS")
+    private List<ServiceHasCompany> serviceHasCompanyList;
 
-    public String getNameCompany() {
-        return nameCompany;
-    }
+    @OneToMany(mappedBy = "companyProducts")
+    private List<CompanyHasProducts> companyHasProducts;
 
-    public void setNameCompany(String nameCompany) {
-        this.nameCompany = nameCompany;
-    }
+    @OneToMany(mappedBy = "companyUsers")
+    private List<CompanyHasUsers> companyHasUsers ;
+
+
 }

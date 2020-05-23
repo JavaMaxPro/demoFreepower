@@ -41,13 +41,10 @@ public class UsersCompany extends  BaseEntity{
     @Column(name="user")
     private boolean user;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(
-            name= "Company_has_Users",
-            joinColumns={@JoinColumn(name="Users_idUsersCompany", referencedColumnName = "idUsersCompany")},
-            inverseJoinColumns = {@JoinColumn(name = "company_idcompany",referencedColumnName =  "idCompany")}
-            )
-    private List<Company> company;
+    @OneToMany (mappedBy = "usersCompany")
+    private List<CompanyHasUsers> companyHasUsers;
 
+    @OneToMany(mappedBy = "usersCompanyUT")
+    private List<UsersCompanyHasTable> usersCompanyHasTableList;
 
 }
