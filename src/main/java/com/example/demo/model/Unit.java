@@ -21,15 +21,15 @@ public class Unit extends BaseEntity{
     @Type(type = "Integer[]")
     private Integer[] coordinate;
 
-    /*@ManyToOne
-    @JoinColumn(name = "")
-    private List<>;
+    @ManyToOne
+    @JoinColumn(name = "Table_idTable")
+    private TableSV tableSVUn;
 
     @ManyToOne
-    @JoinColumn(name = "")
-    private List<>;
+    @JoinColumn(name = "Products_idProducts")
+    private Products productsUn;
 
     @ManyToOne
-    @JoinColumn(name = "")
-    private List<>;*/
+    @JoinColumn(name = "Service_idService")
+    private Service serviceUn;
 }

@@ -14,7 +14,7 @@ public class UsersCompanyHasTable extends BaseEntity{
 
     @ManyToOne
     @JoinColumn(name = "Table_idTable")
-    private TableS tableSUT;
+    private TableSV tableSUT;
 
     @ManyToOne
     @JoinColumn(name = "Table_idTable")

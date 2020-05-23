@@ -11,7 +11,7 @@ import java.util.List;
 @Entity
 @Table(name = "Table")
 @Data
-public class TableS extends BaseEntity{
+public class TableSV extends BaseEntity{
 
     @Column(name = "nameTable")
     private String nameTable;
@@ -24,5 +24,8 @@ public class TableS extends BaseEntity{
 
     @OneToMany(mappedBy = "tableSUT")
     private List<UsersCompanyHasTable> usersCompanyHasTableList;
+
+    @OneToMany(mappedBy = "tableSVUn")
+    private  List<Unit>unitList;
 
 }

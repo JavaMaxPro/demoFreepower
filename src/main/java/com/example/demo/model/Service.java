@@ -28,4 +28,7 @@ public class Service extends BaseEntity{
 
     @OneToMany(mappedBy = "serviceC")
     public List<ServiceHasCompany> serviceHasCompanyList;
+
+    @OneToMany(mappedBy = "serviceUn")
+    public List<Unit> unitList;
 }

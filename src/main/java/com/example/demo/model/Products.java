@@ -36,5 +36,10 @@ public class Products extends BaseEntity{
     @OneToMany(mappedBy = "productsImage")
     public List<ImageS> imageSList;
 
+    @OneToMany(mappedBy = "productsUn")
+    public List<Unit> unitList;
+
+
+
 
 }
