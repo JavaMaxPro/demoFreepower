@@ -14,8 +14,6 @@ import java.util.Objects;
 public class UsersCompany extends  BaseEntity{
 
 
-    @Column(name="idUsersCompany")
-    private long idUsersCompany = super.getId();
 
     @Column(name="firstName")
     private String firstName;
