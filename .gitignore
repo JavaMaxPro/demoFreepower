@@ -4,6 +4,7 @@ build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**
 !**/src/test/**
+!**/src/resources/**
 !/.gitignore
 
 ### STS ###
@@ -37,3 +38,5 @@ src/main/java/com/example/demo/repository/
 src/main/java/com/example/demo/security/
 src/main/resources/static/
 src/main/resources/templates/
+!/.gitignore
+src/main/java/com/example/demo/rest/

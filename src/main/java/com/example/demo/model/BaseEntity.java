@@ -1,11 +1,11 @@
 package com.example.demo.model;
 
 import lombok.Data;
+import org.springframework.data.annotation.CreatedBy;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 import java.util.Date;
 
 @MappedSuperclass
@@ -13,12 +13,23 @@ import java.util.Date;
 public class BaseEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    private String name;
 
-    private Date created;
+    @CreatedDate
+    @Column(name = "create")
+    private Date create;
+
+    @LastModifiedDate
+    @Column(name = "update")
     private Date update;
-    private Status status;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
 }
