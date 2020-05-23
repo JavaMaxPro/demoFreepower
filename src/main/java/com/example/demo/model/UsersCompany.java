@@ -25,7 +25,7 @@ public class UsersCompany extends  BaseEntity{
     private String email;
 
     @Column(name="loginCompany")
-    private String login;
+    private String loginCompany;
 
     @Column(name="passwordCompany")
     private String pass;
