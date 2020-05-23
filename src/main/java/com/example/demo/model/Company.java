@@ -3,12 +3,13 @@ package com.example.demo.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.persistence.Table;
 import java.util.Date;
 import java.util.Objects;
 import java.util.List;
 
 @Entity
-@Table(name="Company")
+@Table(name = "Company")
 @Data
 public class Company extends  BaseEntity{
 
