@@ -66,7 +66,7 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
     @Override
     public UsersCompany findByUsersCompanylogin(String usersCompanylogin) {
         UsersCompany result =usersCompanyRepository.findByLoginCompany(usersCompanylogin);
-        log.info("IN  findByUsersCompanylogin - user : found by loggin : {}", result , usersCompanylogin);
+        log.info("IN  findByUsersCompanylogin - user : found by loggin_Company : {}", result , usersCompanylogin);
         return result;
     }
 
