@@ -111,24 +111,33 @@ public class UsersCompany extends  BaseEntity{
         this.status = status;
     }
 
+    public List<Roles> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Roles> roles) {
+        this.roles = roles;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UsersCompany that = (UsersCompany) o;
-        return
-                Objects.equals(firstName, that.firstName) &&
+        return Objects.equals(firstName, that.firstName) &&
                 Objects.equals(secondName, that.secondName) &&
                 Objects.equals(email, that.email) &&
                 Objects.equals(loginCompany, that.loginCompany) &&
                 Objects.equals(pass, that.pass) &&
+                status == that.status &&
                 Objects.equals(companyHasUsers, that.companyHasUsers) &&
-                Objects.equals(usersCompanyHasTableList, that.usersCompanyHasTableList);
+                Objects.equals(usersCompanyHasTableList, that.usersCompanyHasTableList) &&
+                Objects.equals(roles, that.roles);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, secondName, email, loginCompany, pass,  companyHasUsers, usersCompanyHasTableList);
+        return Objects.hash(firstName, secondName, email, loginCompany, pass, status, companyHasUsers, usersCompanyHasTableList, roles);
     }
 
     @Override
@@ -139,8 +148,10 @@ public class UsersCompany extends  BaseEntity{
                 ", email='" + email + '\'' +
                 ", loginCompany='" + loginCompany + '\'' +
                 ", pass='" + pass + '\'' +
+                ", status=" + status +
                 ", companyHasUsers=" + companyHasUsers +
                 ", usersCompanyHasTableList=" + usersCompanyHasTableList +
+                ", roles=" + roles +
                 '}';
     }
 }

@@ -11,7 +11,7 @@ public interface UsersCompanyService {
 
     UsersCompany findByUsersCompanylogin(String usersCompanylogin);
 
-    UsersCompany findByid (long id);
+    UsersCompany findById(Long id);
 
-    void delete(long id);
+    void delete(Long id);
 }

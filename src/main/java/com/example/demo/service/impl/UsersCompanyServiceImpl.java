@@ -1,7 +1,9 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.model.Roles;
 import com.example.demo.model.Status;
 import com.example.demo.model.UsersCompany;
+import com.example.demo.repository.RolesRepository;
 import com.example.demo.repository.UsersCompanyRepository;
 import com.example.demo.service.UsersCompanyService;
 
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -24,18 +27,25 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
     public Logger log;
 
     private UsersCompanyRepository usersCompanyRepository;
+    private RolesRepository rolesRepository;
     private final BCryptPasswordEncoder passwordEncoder;
 
-    public UsersCompanyServiceImpl(UsersCompanyRepository usersCompanyRepository, BCryptPasswordEncoder passwordEncoder) {
+    public UsersCompanyServiceImpl(UsersCompanyRepository usersCompanyRepository, RolesRepository rolesRepository, BCryptPasswordEncoder passwordEncoder) {
         this.usersCompanyRepository = usersCompanyRepository;
-        this.passwordEncoder=passwordEncoder;
+        this.rolesRepository = rolesRepository;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
     public UsersCompany register(UsersCompany usersCompany) {
 
+        Roles rolesUser = rolesRepository.findByName("ROLE_USER");
+        List<Roles> userRoles = new ArrayList<>();
+        userRoles.add(rolesUser);
         //Зашифровываем пароль для БД
         usersCompany.setPass(passwordEncoder.encode(usersCompany.getPass()));
+
+        usersCompany.setRoles(userRoles);
         usersCompany.setStatus(Status.ACTIVE);
 
         UsersCompany registeredUsersCompany = usersCompanyRepository.save(usersCompany);
@@ -61,7 +71,7 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
     }
 
     @Override
-    public UsersCompany findByid(Long id) {
+    public UsersCompany findById(Long id) {
         UsersCompany result =usersCompanyRepository.findById(id).orElse(null);
 
         if(result == null){
@@ -73,7 +83,7 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
     }
 
     @Override
-    public void delete(long id) {
+    public void delete(Long id) {
         usersCompanyRepository.deleteById(id);
         log.info("IN delete - user with id: {} successfully delete");
     }
