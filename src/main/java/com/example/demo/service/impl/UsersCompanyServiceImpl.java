@@ -41,10 +41,12 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
         usersCompany.setUser(true);
         usersCompany.setStatus(Status.ACTIVE);
 
-        log.info("IN reggister - user: {} successfully registered");
+        UsersCompany registeredUsersCompany = usersCompanyRepository.save(usersCompany);
+
+        log.info("IN reggister - user: {} successfully registered", registeredUsersCompany);
 
        // usersCompany.setCompanyHasUsers();
-        return null;
+        return registeredUsersCompany;
     }
 
     @Override

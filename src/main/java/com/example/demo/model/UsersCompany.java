@@ -49,6 +49,13 @@ public class UsersCompany extends  BaseEntity{
     @OneToMany(mappedBy = "usersCompanyUT")
     private List<UsersCompanyHasTable> usersCompanyHasTableList;
 
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+            name = "User_Roles",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "roles_id", referencedColumnName = "id")})
+    private List<Roles> roles;
+
     public String getFirstName() {
         return firstName;
     }
