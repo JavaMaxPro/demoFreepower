@@ -1,5 +1,6 @@
 package com.example.demo.service.impl;
 
+import com.example.demo.model.Status;
 import com.example.demo.model.UsersCompany;
 import com.example.demo.repository.UsersCompanyRepository;
 import com.example.demo.service.UsersCompanyService;
@@ -38,6 +39,7 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
         usersCompany.setAdmin(false);
         usersCompany.setManager(false);
         usersCompany.setUser(true);
+        usersCompany.setStatus(Status.ACTIVE);
 
         log.info("IN reggister - user: {} successfully registered");
 
@@ -64,10 +66,10 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
         UsersCompany result =usersCompanyRepository.findById(id).orElse(null);
 
         if(result == null){
-            log.warn("IN findByid - no user found by id: {}", id);
+            log.warn("IN findById - no user found by id: {}", id);
             return null;
         }
-        log.info("IN  findByid - user : found by id: {}", result );
+        log.info("IN  findById - user : found by id: {}", result );
         return result;
     }
 

@@ -39,6 +39,10 @@ public class UsersCompany extends  BaseEntity{
     @Column(name="user")
     private boolean user;
 
+    @Enumerated(EnumType.STRING)
+    @Column (name = "status")
+    private Status status;
+
     @OneToMany (mappedBy = "usersCompany")
     private List<CompanyHasUsers> companyHasUsers;
 
@@ -123,6 +127,14 @@ public class UsersCompany extends  BaseEntity{
 
     public void setUsersCompanyHasTableList(List<UsersCompanyHasTable> usersCompanyHasTableList) {
         this.usersCompanyHasTableList = usersCompanyHasTableList;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
     @Override
