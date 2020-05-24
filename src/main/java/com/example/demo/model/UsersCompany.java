@@ -30,15 +30,6 @@ public class UsersCompany extends  BaseEntity{
     @Column(name="passwordCompany")
     private String pass;
 
-    @Column(name="admin")
-    private boolean admin;
-
-    @Column(name="manager")
-    private boolean manager;
-
-    @Column(name="user")
-    private boolean user;
-
     @Enumerated(EnumType.STRING)
     @Column (name = "status")
     private Status status;
@@ -96,30 +87,6 @@ public class UsersCompany extends  BaseEntity{
         this.pass = pass;
     }
 
-    public boolean isAdmin() {
-        return admin;
-    }
-
-    public void setAdmin(boolean admin) {
-        this.admin = admin;
-    }
-
-    public boolean isManager() {
-        return manager;
-    }
-
-    public void setManager(boolean manager) {
-        this.manager = manager;
-    }
-
-    public boolean isUser() {
-        return user;
-    }
-
-    public void setUser(boolean user) {
-        this.user = user;
-    }
-
     public List<CompanyHasUsers> getCompanyHasUsers() {
         return companyHasUsers;
     }
@@ -149,9 +116,7 @@ public class UsersCompany extends  BaseEntity{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         UsersCompany that = (UsersCompany) o;
-        return admin == that.admin &&
-                manager == that.manager &&
-                user == that.user &&
+        return
                 Objects.equals(firstName, that.firstName) &&
                 Objects.equals(secondName, that.secondName) &&
                 Objects.equals(email, that.email) &&
@@ -163,7 +128,7 @@ public class UsersCompany extends  BaseEntity{
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, secondName, email, loginCompany, pass, admin, manager, user, companyHasUsers, usersCompanyHasTableList);
+        return Objects.hash(firstName, secondName, email, loginCompany, pass,  companyHasUsers, usersCompanyHasTableList);
     }
 
     @Override
@@ -174,9 +139,6 @@ public class UsersCompany extends  BaseEntity{
                 ", email='" + email + '\'' +
                 ", loginCompany='" + loginCompany + '\'' +
                 ", pass='" + pass + '\'' +
-                ", admin=" + admin +
-                ", manager=" + manager +
-                ", user=" + user +
                 ", companyHasUsers=" + companyHasUsers +
                 ", usersCompanyHasTableList=" + usersCompanyHasTableList +
                 '}';

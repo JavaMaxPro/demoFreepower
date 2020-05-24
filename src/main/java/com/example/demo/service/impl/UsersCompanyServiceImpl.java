@@ -36,9 +36,6 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
 
         //Зашифровываем пароль для БД
         usersCompany.setPass(passwordEncoder.encode(usersCompany.getPass()));
-        usersCompany.setAdmin(false);
-        usersCompany.setManager(false);
-        usersCompany.setUser(true);
         usersCompany.setStatus(Status.ACTIVE);
 
         UsersCompany registeredUsersCompany = usersCompanyRepository.save(usersCompany);
@@ -64,7 +61,7 @@ public class UsersCompanyServiceImpl implements UsersCompanyService {
     }
 
     @Override
-    public UsersCompany findByid(long id) {
+    public UsersCompany findByid(Long id) {
         UsersCompany result =usersCompanyRepository.findById(id).orElse(null);
 
         if(result == null){
